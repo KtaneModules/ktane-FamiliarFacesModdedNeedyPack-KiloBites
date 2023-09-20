@@ -37,7 +37,6 @@ public class BlinkerScript : MonoBehaviour {
 		Needy.OnNeedyActivation += needyActivation;
 		Needy.OnNeedyDeactivation += needyDeactivation;
 		Needy.OnTimerExpired += needyTimerExpired;
-		Bomb.OnBombSolved += endNeedy;
 
     }
 
@@ -66,13 +65,6 @@ public class BlinkerScript : MonoBehaviour {
 	{
 		Log($"[Blinker #{moduleId}] You haven't pressed all 9 buttons in time. Strike!");
 		Needy.HandleStrike();
-		needyDeactivation();
-	}
-
-	void endNeedy()
-	{
-		Needy.HandlePass();
-		needyDeactivation();
 	}
 
 	void buttonPress(KMSelectable button)
@@ -81,12 +73,19 @@ public class BlinkerScript : MonoBehaviour {
 
         var ix = Array.IndexOf(gridButtons, button);
 
-		if (selectedPos.Last() != ix || pressed[ix])
+		if (selectedPos.Last() != ix || pressed[ix] || needyDeactivated)
 			return;
 		else
 		{
 			stage++;
 			pressed[ix] = true;
+
+			if (pressed.All(x => x))
+			{
+				for (int i = 0; i < 9; i++)
+					pressed[i] = false;
+				Needy.HandlePass();
+			}
 		}
 
 	}

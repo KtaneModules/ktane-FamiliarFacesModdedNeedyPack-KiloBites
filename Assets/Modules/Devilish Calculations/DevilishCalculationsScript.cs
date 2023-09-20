@@ -50,7 +50,6 @@ public class DevilishCalculationsScript : MonoBehaviour {
 		Needy.OnNeedyActivation += needyActivation;
 		Needy.OnNeedyDeactivation += needyDeactivation;
 		Needy.OnTimerExpired += needyTimerExpired;
-		Bomb.OnBombSolved += endNeedy;
 
 	}
 
@@ -80,7 +79,6 @@ public class DevilishCalculationsScript : MonoBehaviour {
 				{
 					Log($"[Devilish Calculations #{moduleId}] Expected input is correct.");
 					Needy.HandlePass();
-					needyDeactivation();
 				}
 				else
 				{
@@ -123,12 +121,6 @@ public class DevilishCalculationsScript : MonoBehaviour {
 		displays[0].text = expressions.Last();
 	}
 
-	void endNeedy()
-	{
-		Needy.HandlePass();
-		needyDeactivation();
-	}
-
 	void needyDeactivation()
 	{
 		foreach (var text in displays)
@@ -146,8 +138,6 @@ public class DevilishCalculationsScript : MonoBehaviour {
 			answers.RemoveAt(0);
 			expressions.RemoveAt(0);
 		}
-
-		needyDeactivation();
 	}
 
 	// Twitch Plays
