@@ -61,6 +61,8 @@ public class DevilishCalculationsScript : MonoBehaviour {
 
 	void keypadPress(KMSelectable key)
 	{
+		key.AddInteractionPunch(0.4f);
+
 		if (needyDeactivated || answers.Count <= backIx)
 		{
 			Audio.PlaySoundAtTransform("NoInteraction", transform);
@@ -79,7 +81,9 @@ public class DevilishCalculationsScript : MonoBehaviour {
 				{
 					Log($"[Devilish Calculations #{moduleId}] Expected input is correct.");
 					Needy.HandlePass();
-				}
+                    answers.RemoveAt(0);
+                    expressions.RemoveAt(0);
+                }
 				else
 				{
 					var length = displays[1].text.Length == 0 ? "nothing" : displays[1].text;
@@ -137,7 +141,9 @@ public class DevilishCalculationsScript : MonoBehaviour {
 			Needy.HandleStrike();
 			answers.RemoveAt(0);
 			expressions.RemoveAt(0);
-		}
+            foreach (var text in displays)
+                text.text = string.Empty;
+        }
 	}
 
 	// Twitch Plays
