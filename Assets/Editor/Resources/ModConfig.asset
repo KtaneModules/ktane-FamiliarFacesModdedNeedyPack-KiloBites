@@ -11,10 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
   m_Name: ModConfig
   m_EditorClassIdentifier: 
-  id: 
-  title: 
-  author: 
-  description: 
-  version: 
+  id: ffModdedNeedies
+  title: Familiar Faces Modded Needies
+  author: Kilo Bites & ItzShaun
+  description: 'Hmm... Something''s quite familiar with these needies, yet I can''t
+    put my finger on it...
+
+
+    This is a needy pack containing two needies in the Familiar Faces series by ItzShaun.
+
+
+    [Familiar Faces #21] Devilish Calculations
+
+
+    [Familiar Faces #22] Blinker
+
+
+'
+  version: 1
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: 18d84a24f1a59a94d9d2fdf638320780, type: 3}

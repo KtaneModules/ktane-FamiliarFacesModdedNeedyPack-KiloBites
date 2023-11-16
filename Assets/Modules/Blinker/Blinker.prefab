@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 3366854}
   - component: {fileID: 2378342}
   - component: {fileID: 11491944}
-  - component: {fileID: 11430658}
   - component: {fileID: 9546882}
   - component: {fileID: 114000010945740664}
   m_Layer: 0
@@ -147,7 +146,6 @@ GameObject:
   - component: {fileID: 3342754}
   - component: {fileID: 2329676}
   - component: {fileID: 11490046}
-  - component: {fileID: 11486108}
   - component: {fileID: 9599824}
   - component: {fileID: 114000012147722906}
   m_Layer: 0
@@ -187,7 +185,6 @@ GameObject:
   - component: {fileID: 3357186}
   - component: {fileID: 2371784}
   - component: {fileID: 11402064}
-  - component: {fileID: 11407430}
   - component: {fileID: 9571412}
   - component: {fileID: 114000012743111396}
   m_Layer: 0
@@ -244,7 +241,6 @@ GameObject:
   - component: {fileID: 3360534}
   - component: {fileID: 2305164}
   - component: {fileID: 11403110}
-  - component: {fileID: 11468366}
   - component: {fileID: 9538816}
   - component: {fileID: 114000010045934398}
   m_Layer: 0
@@ -268,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &148096
 GameObject:
   m_ObjectHideFlags: 1
@@ -300,8 +296,10 @@ GameObject:
   - component: {fileID: 11499926}
   - component: {fileID: 11419924}
   - component: {fileID: 9551716}
+  - component: {fileID: 114747237609066492}
+  - component: {fileID: 114860876381225286}
   m_Layer: 0
-  m_Name: LightsOut
+  m_Name: Blinker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +384,6 @@ GameObject:
   - component: {fileID: 3303556}
   - component: {fileID: 2332140}
   - component: {fileID: 11481032}
-  - component: {fileID: 11455032}
   - component: {fileID: 9512750}
   - component: {fileID: 114000012872844790}
   m_Layer: 0
@@ -561,7 +558,6 @@ GameObject:
   - component: {fileID: 3343974}
   - component: {fileID: 2353102}
   - component: {fileID: 11482672}
-  - component: {fileID: 11444674}
   - component: {fileID: 9550086}
   - component: {fileID: 114000013664130372}
   m_Layer: 0
@@ -582,7 +578,6 @@ GameObject:
   - component: {fileID: 3302132}
   - component: {fileID: 2312578}
   - component: {fileID: 11411656}
-  - component: {fileID: 11410248}
   - component: {fileID: 9545032}
   - component: {fileID: 114000010237498076}
   m_Layer: 0
@@ -603,7 +598,6 @@ GameObject:
   - component: {fileID: 3337620}
   - component: {fileID: 2392850}
   - component: {fileID: 11432432}
-  - component: {fileID: 11476716}
   - component: {fileID: 9599704}
   - component: {fileID: 114000013242473054}
   m_Layer: 0
@@ -643,7 +637,6 @@ GameObject:
   - component: {fileID: 3339868}
   - component: {fileID: 2300146}
   - component: {fileID: 11420396}
-  - component: {fileID: 11447620}
   - component: {fileID: 9548040}
   - component: {fileID: 114000012345839508}
   m_Layer: 0
@@ -779,7 +772,7 @@ Transform:
   - {fileID: 432054}
   m_Father: {fileID: 448906}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &400610
 Transform:
   m_ObjectHideFlags: 1
@@ -827,7 +820,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2024345, y: -5.1661053, z: 6.1158648}
+  m_LocalPosition: {x: 0.21, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487556}
@@ -903,7 +896,7 @@ Transform:
   - {fileID: 433268}
   m_Father: {fileID: 448906}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &418074
 Transform:
   m_ObjectHideFlags: 1
@@ -957,7 +950,7 @@ Transform:
   - {fileID: 490078}
   m_Father: {fileID: 448906}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &430918
 Transform:
   m_ObjectHideFlags: 1
@@ -1040,7 +1033,7 @@ Transform:
   - {fileID: 475884}
   m_Father: {fileID: 448906}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &445478
 Transform:
   m_ObjectHideFlags: 1
@@ -1073,7 +1066,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145168}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.019, z: 0}
   m_LocalScale: {x: 0.025, y: 0.015, z: 0.02}
   m_Children:
@@ -1081,7 +1074,7 @@ Transform:
   - {fileID: 485608}
   m_Father: {fileID: 448906}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &448906
 Transform:
   m_ObjectHideFlags: 1
@@ -1225,7 +1218,7 @@ Transform:
   - {fileID: 488916}
   m_Father: {fileID: 448906}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &485608
 Transform:
   m_ObjectHideFlags: 1
@@ -1281,7 +1274,7 @@ Transform:
   - {fileID: 478632}
   m_Father: {fileID: 448906}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &488916
 Transform:
   m_ObjectHideFlags: 1
@@ -1324,7 +1317,7 @@ Transform:
   - {fileID: 400730}
   m_Father: {fileID: 448906}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &497618
 Transform:
   m_ObjectHideFlags: 1
@@ -1339,7 +1332,7 @@ Transform:
   - {fileID: 441028}
   m_Father: {fileID: 448906}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &498350
 Transform:
   m_ObjectHideFlags: 1
@@ -2255,7 +2248,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155880}
-  m_Mesh: {fileID: 4300000, guid: 2deaf1aa2b042fe4191f0044b56f8851, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5ab6c3be308beaa47b558e81d501cf7c, type: 3}
 --- !u!64 &6406152
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -2596,45 +2589,6 @@ MonoBehaviour:
   AllowSelectionWrapY: 0
   ForceSelectionHighlight: 0
   ForceInteractionHighlight: 0
---- !u!114 &11407430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11402064}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9571412}
-  AdjacentButtons:
-  - {fileID: 11455032}
-  - {fileID: 11447620}
-  CanInteract: 0
-  LitState: 0
---- !u!114 &11410248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11411656}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9545032}
-  AdjacentButtons:
-  - {fileID: 11486108}
-  - {fileID: 11476716}
-  - {fileID: 11468366}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11411656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2716,25 +2670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &11430658
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11491944}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9546882}
-  AdjacentButtons:
-  - {fileID: 11444674}
-  - {fileID: 11447620}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11432432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2770,46 +2705,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &11444674
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11482672}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9550086}
-  AdjacentButtons:
-  - {fileID: 11476716}
-  - {fileID: 11468366}
-  - {fileID: 11430658}
-  CanInteract: 0
-  LitState: 0
---- !u!114 &11447620
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11420396}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9548040}
-  AdjacentButtons:
-  - {fileID: 11468366}
-  - {fileID: 11407430}
-  - {fileID: 11430658}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11449514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2849,26 +2744,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &11455032
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11481032}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9512750}
-  AdjacentButtons:
-  - {fileID: 11486108}
-  - {fileID: 11468366}
-  - {fileID: 11407430}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11461218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2882,27 +2757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &11468366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11403110}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9538816}
-  AdjacentButtons:
-  - {fileID: 11410248}
-  - {fileID: 11455032}
-  - {fileID: 11444674}
-  - {fileID: 11447620}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11470960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2916,25 +2770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &11476716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11432432}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9599704}
-  AdjacentButtons:
-  - {fileID: 11410248}
-  - {fileID: 11444674}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11477214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2962,8 +2797,8 @@ MonoBehaviour:
   CountdownTime: 40
   ResetDelayMin: 10
   ResetDelayMax: 40
-  ModuleType: LightsOut
-  ModuleDisplayName: Lights Out
+  ModuleType: blinker
+  ModuleDisplayName: Blinker
   RequiresTimerVisibility: 0
   WarnAtFiveSeconds: 1
 --- !u!114 &11481032
@@ -3010,25 +2845,6 @@ MonoBehaviour:
   AllowSelectionWrapY: 0
   ForceSelectionHighlight: 0
   ForceInteractionHighlight: 0
---- !u!114 &11486108
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0396985fc9458b4ba1a03eca2b17305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Selectable: {fileID: 11490046}
-  Audio: {fileID: 11419924}
-  Animator: {fileID: 9599824}
-  AdjacentButtons:
-  - {fileID: 11410248}
-  - {fileID: 11455032}
-  CanInteract: 0
-  LitState: 0
 --- !u!114 &11488948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3140,7 +2956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000010068193814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3179,7 +2995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000010721979758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3218,7 +3034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000011072053678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3257,7 +3073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000012198859652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3283,7 +3099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000012365082500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3309,7 +3125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000012872844790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3322,7 +3138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000012923196498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3361,7 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
 --- !u!114 &114000013350136418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3387,4 +3203,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Standard
+  - KT/Blend Unlit
+--- !u!114 &114747237609066492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6968abda1f0062b4aa070ae700fe5629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bomb: {fileID: 114860876381225286}
+  Audio: {fileID: 11419924}
+  Needy: {fileID: 11479812}
+  gridButtons:
+  - {fileID: 11490046}
+  - {fileID: 11411656}
+  - {fileID: 11432432}
+  - {fileID: 11481032}
+  - {fileID: 11403110}
+  - {fileID: 11482672}
+  - {fileID: 11402064}
+  - {fileID: 11420396}
+  - {fileID: 11491944}
+  animators:
+  - {fileID: 9599824}
+  - {fileID: 9545032}
+  - {fileID: 9599704}
+  - {fileID: 9512750}
+  - {fileID: 9538816}
+  - {fileID: 9550086}
+  - {fileID: 9571412}
+  - {fileID: 9548040}
+  - {fileID: 9546882}
+--- !u!114 &114860876381225286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2144496390, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

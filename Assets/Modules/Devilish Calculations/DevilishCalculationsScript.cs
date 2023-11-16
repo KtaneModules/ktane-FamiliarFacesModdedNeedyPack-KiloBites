@@ -25,11 +25,11 @@ public class DevilishCalculationsScript : MonoBehaviour {
 	private List<int> answers = new List<int>();
 	private List<string> expressions = new List<string>();
 
-	private int expressionAnswer(int a, int b, bool addition) => addition ? a + b : Math.Max(a, b) - Math.Min(a, b);
+	private int ExpressionAnswer(int a, int b, bool addition) => addition ? a + b : Math.Max(a, b) - Math.Min(a, b);
 
 	class DevilishCalculationsSettings
 	{
-		public int back = 2;
+		public int Back = 2;
 	}
 
 	private DevilishCalculationsSettings DevilishCalcSettings = new DevilishCalculationsSettings();
@@ -40,16 +40,16 @@ public class DevilishCalculationsScript : MonoBehaviour {
         ModConfig<DevilishCalculationsSettings> config = new ModConfig<DevilishCalculationsSettings>("DevilishCalculationsSettings");
         DevilishCalcSettings = config.Read();
 		config.Write(DevilishCalcSettings);
-		backIx = DevilishCalcSettings.back < 1 || DevilishCalcSettings.back > 3 ? 2 : DevilishCalcSettings.back;
+		backIx = DevilishCalcSettings.Back < 1 || DevilishCalcSettings.Back > 3 ? 2 : DevilishCalcSettings.Back;
 
         moduleId = moduleIdCounter++;
 
 		foreach (KMSelectable key in keypadButtons)
-			key.OnInteract += delegate () { keypadPress(key); return false; };
+			key.OnInteract += delegate () { KeypadPress(key); return false; };
 
-		Needy.OnNeedyActivation += needyActivation;
-		Needy.OnNeedyDeactivation += needyDeactivation;
-		Needy.OnTimerExpired += needyTimerExpired;
+		Needy.OnNeedyActivation += NeedyActivation;
+		Needy.OnNeedyDeactivation += NeedyDeactivation;
+		Needy.OnTimerExpired += NeedyTimerExpired;
 
 	}
 
@@ -59,7 +59,7 @@ public class DevilishCalculationsScript : MonoBehaviour {
 		Log($"[Devilish Calculations #{moduleId}] The needy is configured to {backIx}-Back.");
     }
 
-	void keypadPress(KMSelectable key)
+	void KeypadPress(KMSelectable key)
 	{
 		key.AddInteractionPunch(0.4f);
 
@@ -80,15 +80,22 @@ public class DevilishCalculationsScript : MonoBehaviour {
 				if (int.Parse(displays[1].text) == answers[backIx == 1 ? answers.Count - backIx : answers.Count - backIx - 1])
 				{
 					Log($"[Devilish Calculations #{moduleId}] Expected input is correct.");
-					Needy.HandlePass();
+					needyDeactivated = true;
+
+					foreach (var text in displays)
+						text.text = "";
+
+					needyDeactivated = true;
                     answers.RemoveAt(0);
                     expressions.RemoveAt(0);
+					NeedyDeactivation();
                 }
 				else
 				{
 					var length = displays[1].text.Length == 0 ? "nothing" : displays[1].text;
 					Log($"[Devilish Calculations #{moduleId}] Expected {answers[backIx == 1 ? answers.Count - backIx : answers.Count - backIx - 1]}, but inputted {length}. Strike!");
 					Needy.HandleStrike();
+					NeedyDeactivation();
 				}
 				break;
 			default:
@@ -98,18 +105,18 @@ public class DevilishCalculationsScript : MonoBehaviour {
 		}
 	}
 
-	void mathGeneration()
+	void MathGeneration()
 	{
 		var addition = Range(0, 2) == 0;
 		int a = Range(0, 10), b = Range(0, 10);
-		answers.Add(expressionAnswer(a, b, addition));
+		answers.Add(ExpressionAnswer(a, b, addition));
 		expressions.Add(addition ? $"{a}+{b}" : $"{Math.Max(a, b)}-{Math.Min(a, b)}");
 	}
 
-	void needyActivation()
+	void NeedyActivation()
 	{
 		needyDeactivated = false;
-		mathGeneration();
+		MathGeneration();
 		if (!activatedOnce)
 			activatedOnce = true;
 
@@ -125,14 +132,15 @@ public class DevilishCalculationsScript : MonoBehaviour {
 		displays[0].text = expressions.Last();
 	}
 
-	void needyDeactivation()
+	void NeedyDeactivation()
 	{
 		foreach (var text in displays)
 			text.text = string.Empty;
 		needyDeactivated = true;
+		Needy.HandlePass();
 	}
 
-	void needyTimerExpired()
+	void NeedyTimerExpired()
 	{
 		if (answers.Count > backIx)
 		{
@@ -141,14 +149,15 @@ public class DevilishCalculationsScript : MonoBehaviour {
 			Needy.HandleStrike();
 			answers.RemoveAt(0);
 			expressions.RemoveAt(0);
-            foreach (var text in displays)
-                text.text = string.Empty;
         }
-	}
+
+        foreach (var text in displays)
+            text.text = string.Empty;
+    }
 
 	// Twitch Plays
 
-	int getNumIndex(char c) => "1230456A789B".IndexOf(c);
+	int GetNumIndex(char c) => "1230456A789B".IndexOf(c);
 
 #pragma warning disable 414
 	private readonly string TwitchHelpMessage = @"!{0} submit 0123546789 to input your answer.";
@@ -205,10 +214,16 @@ public class DevilishCalculationsScript : MonoBehaviour {
 				yield break;
 			}
 
-			var input = split[1].Select(getNumIndex).ToArray();
+			var input = split[1].Select(GetNumIndex).ToArray();
 
-			if (input.Any(x => x < 0))
+			if (input.Any(x => x < 0 || x == 7 || x == 11))
 				yield break;
+
+			if (displays[1].text.Length != 0)
+			{
+				keypadButtons[7].OnInteract();
+				yield return new WaitForSeconds(0.1f);
+			}
 
 			foreach (var num in input)
 			{
@@ -242,14 +257,12 @@ public class DevilishCalculationsScript : MonoBehaviour {
 					yield return new WaitForSeconds(0.1f);
 					continue;
 				}
-				else
-				{
-					keypadButtons[7].OnInteract();
-					yield return new WaitForSeconds(0.1f);
-				}
-			}
 
-			var answer = answers[backIx == 1 ? answers.Count - backIx : answers.Count - backIx - 1].ToString().Select(getNumIndex).ToArray();
+                keypadButtons[7].OnInteract();
+                yield return new WaitForSeconds(0.1f);
+            }
+
+			var answer = answers[backIx == 1 ? answers.Count - backIx : answers.Count - backIx - 1].ToString().Select(GetNumIndex).ToArray();
 
 			foreach (var num in answer)
 			{

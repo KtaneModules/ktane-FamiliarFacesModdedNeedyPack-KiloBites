@@ -1,0 +1,10 @@
+{
+  "name": "ffModdedNeedies-Editor",
+  "references": [
+    "ffModdedNeedies"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": []
+}

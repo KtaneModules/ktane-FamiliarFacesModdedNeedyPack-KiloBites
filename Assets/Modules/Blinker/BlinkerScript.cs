@@ -31,38 +31,49 @@ public class BlinkerScript : MonoBehaviour {
 		moduleId = moduleIdCounter++;
 
 		foreach (KMSelectable button in gridButtons)
-			button.OnInteract += delegate () { buttonPress(button); return false; };
+			button.OnInteract += delegate () { ButtonPress(button); return false; };
 
-		Needy.OnNeedyActivation += needyActivation;
-		Needy.OnNeedyDeactivation += needyDeactivation;
-		Needy.OnTimerExpired += needyTimerExpired;
+		Needy.OnNeedyActivation += NeedyActivation;
+		Needy.OnNeedyDeactivation += NeedyDeactivation;
+		Needy.OnTimerExpired += NeedyTimerExpired;
 
     }
 
 	void Start()
 	{
-		for (int i = 0; i < 9; i++)
-			flashingPos.Add(i);
+		flashingPos.AddRange(Enumerable.Range(0, 9));
 
 		flashingPos.Shuffle();
 	}
 
-	void needyActivation()
+	void NeedyActivation()
 	{
 		needyDeactivated = false;
 
-		displayingLights();
+		DisplayingLights();
         Log($"[Blinker #{moduleId}] The buttons to press for this activation in order are: {flashingPos.Select(x => x + 1).Join(", ")}");
     }
 
-	void needyDeactivation()
+	void NeedyDeactivation()
 	{
 		flashingPos.Shuffle();
+
+		foreach (var c in flashes)
+			if (c != null)
+				StopCoroutine(c);
+
+		for (int i = 0; i < 9; i++)
+		{
+			if (currentlyFlashing[i])
+				animators[i].SetTrigger("Unlit");
+			currentlyFlashing[i] = false;
+			pressed[i] = false;
+		}
 
 		needyDeactivated = true;
     }
 
-	void needyTimerExpired()
+	void NeedyTimerExpired()
 	{
 		Log($"[Blinker #{moduleId}] You haven't pressed all 9 buttons in time. Strike!");
 		Needy.HandleStrike();
@@ -70,10 +81,8 @@ public class BlinkerScript : MonoBehaviour {
 		flashingPos.Shuffle();
 
 		foreach (var c in flashes)
-		{
 			if (c != null)
 				StopCoroutine(c);
-		}
 
 		for (int i = 0; i < 9; i++)
 		{
@@ -83,9 +92,11 @@ public class BlinkerScript : MonoBehaviour {
 			pressed[i] = false;
 			currentlyFlashing[i] = false;
 		}
+
+		needyDeactivated = true;
 	}
 
-	void buttonPress(KMSelectable button)
+	void ButtonPress(KMSelectable button)
 	{
 		Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
 		button.AddInteractionPunch(0.4f);
@@ -118,42 +129,38 @@ public class BlinkerScript : MonoBehaviour {
                     currentlyFlashing[i] = false;
 					
                 }
+				needyDeactivated = true;
 				Needy.HandlePass();
 				stage = 1;
+				flashingPos.Shuffle();
 				Log($"[Blinker #{moduleId}] You pressed all 9 buttons, and it is now deactivated.");
 			}
 			else
 			{
                 stage++;
-                displayingLights();
+                DisplayingLights();
                 Log($"[Blinker #{moduleId}] {ix + 1} is pressed correctly.");
             }
 		}
 
 	}
 
-	void displayingLights()
+	void DisplayingLights()
 	{
         if (stage != 1)
-            StartCoroutine(stopBlinking());
+            StartCoroutine(StopBlinking());
 		else
 		{
             selectedPos = flashingPos.Take(stage).ToArray();
 
             for (int i = 0; i < 9; i++)
-            {
-
                 if (selectedPos.Contains(i))
-                {
-                    flashes[i] = StartCoroutine(blinkingLight(i));
-                }
-
-            }
+                    flashes[i] = StartCoroutine(BlinkingLight(i));
         }
 
 	}
 
-	IEnumerator stopBlinking()
+	IEnumerator StopBlinking()
 	{
         selectedPos = flashingPos.Take(stage).ToArray();
 
@@ -162,24 +169,25 @@ public class BlinkerScript : MonoBehaviour {
 			{
 				if (!currentlyFlashing[i])
 					continue;
-				else
-				{
-                    animators[i].SetTrigger("Unlit");
-					currentlyFlashing[i] = false;
-                }
-			}
+
+                animators[i].SetTrigger("Unlit");
+                currentlyFlashing[i] = false;
+            }
 
 
 		yield return new WaitForSeconds(1);
 
 		for (int i = 0; i < 9; i++)
 		{
+			if (needyDeactivated)
+				break;
+
 			if (selectedPos.Contains(i))
-				flashes[i] = StartCoroutine(blinkingLight(i));
+				flashes[i] = StartCoroutine(BlinkingLight(i));
 		}
 	}
 
-	IEnumerator blinkingLight(int pos)
+	IEnumerator BlinkingLight(int pos)
 	{
 
 		while (true)
