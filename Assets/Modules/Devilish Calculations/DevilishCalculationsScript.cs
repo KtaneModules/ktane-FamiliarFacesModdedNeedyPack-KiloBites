@@ -160,7 +160,7 @@ public class DevilishCalculationsScript : MonoBehaviour {
 	int GetNumIndex(char c) => "1230456A789B".IndexOf(c);
 
 #pragma warning disable 414
-	private readonly string TwitchHelpMessage = @"!{0} submit 0123546789 to input your answer.";
+	private readonly string TwitchHelpMessage = @"!{0} submit 0123546789 to input your answer. || !{0} config to see what the needy's back index is configured to. || !{0} set 123 to set the needy's back index to that number. Keep in mind you cannot change this once the needy is activated the first time.";
 #pragma warning restore 414
 
 	IEnumerator ProcessTwitchCommand (string command)
