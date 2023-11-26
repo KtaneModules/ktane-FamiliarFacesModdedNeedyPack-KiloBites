@@ -38,8 +38,8 @@ public class DevilishCalculationsScript : MonoBehaviour {
     {
 
         ModConfig<DevilishCalculationsSettings> config = new ModConfig<DevilishCalculationsSettings>("DevilishCalculationsSettings");
-        DevilishCalcSettings = config.Read();
-		config.Write(DevilishCalcSettings);
+		DevilishCalcSettings = config.Settings;
+		config.Settings = DevilishCalcSettings;
 		backIx = DevilishCalcSettings.Back < 1 || DevilishCalcSettings.Back > 3 ? 2 : DevilishCalcSettings.Back;
 
         moduleId = moduleIdCounter++;
